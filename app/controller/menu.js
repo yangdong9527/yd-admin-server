@@ -1,15 +1,10 @@
-const {Controller} = require('egg')
+const Controller = require('./base')
 
 class MenuController extends Controller {
   async list() {
     const {ctx} = this
     const result = await this.service.menu.getAll()
-    ctx.body = {
-      message: '查询成功',
-      code: 0,
-      data: result
-    }
-    ctx.status = 200
+    this.success('查询成功', 0, result)
   }
   async add() {
     const result = await this.service.menu.add()
@@ -18,6 +13,25 @@ class MenuController extends Controller {
       code: 0
     }
     this.ctx.status = 200
+  }
+  async update() {
+    const {ctx} = this
+    const result = await this.service.menu.update()
+    if(result.affectedRows == 1) {
+      this.success('修改成功')
+    } else {
+      this.error('修改失败')
+    }
+  }
+
+  async del() {
+    let {ctx} = this
+    const result = await this.service.menu.del()
+    if(result.affectedRows === 1){
+      this.success('删除成功')
+    }else {
+      this.error('删除失败')
+    }
   }
 }
 

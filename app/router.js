@@ -7,5 +7,7 @@ module.exports = app => {
   const { router, controller } = app;
   // menu
   router.get('/menu', controller.menu.list);
-  router.post('/menu/add', controller.menu.add)
+  router.post('/menu', controller.menu.add)
+  router.put('/menu', controller.menu.update)
+  router.del('/menu', controller.menu.del)
 };
