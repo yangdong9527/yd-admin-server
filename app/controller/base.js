@@ -3,7 +3,7 @@ const {
 } = require('egg')
 
 class BaseController extends Controller {
-  success(message = '成功', code = 0, data = '', httpCode = 200) {
+  success(message = '成功', code = 0, data = '', httpCode = 200, count) {
     let {
       ctx
     } = this
@@ -14,11 +14,14 @@ class BaseController extends Controller {
     if (data) {
       result.data = data
     }
+    if(count) {
+      result.count = count
+    }
     ctx.body = result
     ctx.status = httpCode
   }
 
-  error(message ="失败", code = 1, httpCode = 999) {
+  error(message ="失败", code = 1, httpCode = 400) {
     let {ctx} = this
     ctx.body = {
       message,

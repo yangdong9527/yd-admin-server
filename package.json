@@ -7,10 +7,14 @@
     "declarations": true
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "egg": "^2.15.1",
+    "egg-cors": "^2.2.3",
     "egg-mysql": "^3.0.0",
     "egg-scripts": "^2.11.0",
-    "egg-validate": "^2.0.2"
+    "egg-validate": "^2.0.2",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.24.0"
   },
   "devDependencies": {
     "autod": "^3.0.1",

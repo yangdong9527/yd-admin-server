@@ -33,6 +33,19 @@ class MenuController extends Controller {
       this.error('删除失败')
     }
   }
+
+  // 获取用户的 菜单
+  async userMenu() {
+    const { ctx } = this
+    const result = await this.service.menu.userMenu()
+    this.success('查询成功', 0, result)
+  }
+
+  // 获取菜单树
+  async tree() {
+    const result = await this.service.menu.tree()
+    this.success('查询成功', 0, result)
+  }
 }
 
 module.exports = MenuController
