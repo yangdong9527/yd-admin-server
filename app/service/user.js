@@ -103,7 +103,7 @@ class UserService extends Service {
     const { ctx } = this
     const { id } = ctx.auth
     const user = await this.app.mysql.query('select * from user where id = ?',[id])
-    const roleId = user.role_id
+    const roleId = user[0].role_id
     const role = await this.app.mysql.query('select * from role where id = ?', [roleId])
     if (role.length === 0) {
       throw new HttpExceptions('用户未分配角色', 400, 1)
@@ -117,18 +117,11 @@ class UserService extends Service {
     }).map(v => {
       return v.permission
     })
-    // 生成token
-    const info = {
-      id: user.id,
-      scope: permission
-    }
-    const token = this.app.generateToken(info)
     // 拼接数据
     let result = {}
-    result.info = ctx.helper.formatResponse(user)
+    result.info = ctx.helper.formatResponse(user[0])
     delete result.info.password
     result.menus = permission
-    result.token = token
     return result
   }
 

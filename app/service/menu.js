@@ -18,7 +18,7 @@ class MenuService extends Service {
     const user = await this.app.mysql.query('select * from user where id = ?', [id])
     const role = await this.app.mysql.query('select * from role where id = ?', [user[0].role_id])
     const menus = role[0].menus
-    let menusArr = await this.app.mysql.query(`select id,type, name, icon, path, title, component, hidden, pid, always_show alwaysShow from menu where id in (${menus}) order by sort desc`)
+    let menusArr = await this.app.mysql.query(`select id,type, name, icon, path, title, component, hidden, pid, always_show alwaysShow from menu where id in (${menus}) and type not in (2) order by sort desc`)
     menusArr = menusArr.map(item => {
       item.hidden = item.hidden === 0 ? false : true
       item.alwaysShow = item.alwaysShow === 0 ? false : true
