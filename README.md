@@ -1,33 +1,12 @@
-# yd-amdin-server
+# YD-VUE-ADMIN
 
+项目描述 : 前端使用 vue+element-ui 后端使用 egg.js+mysql , 权限控制采用 RBAC，动态生成菜单路由
 
+### 项目源码
 
-## QuickStart
+| 前端                                           | 后端                                            |
+| ---------------------------------------------- | ----------------------------------------------- |
+| https://github.com/yangdong9527/vue-admin-dong | https://github.com/yangdong9527/yd-admin-server |
 
-<!-- add docs here for user -->
-
-see [egg docs][egg] for more detail.
-
-### Development
-
-```bash
-$ npm i
-$ npm run dev
-$ open http://localhost:7001/
-```
-
-### Deploy
-
-```bash
-$ npm start
-$ npm stop
-```
-
-### npm scripts
-
-- Use `npm run lint` to check code style.
-- Use `npm test` to run unit test.
-- Use `npm run autod` to auto detect dependencies upgrade, see [autod](https://www.npmjs.com/package/autod) for more detail.
-
-
-[egg]: https://eggjs.org
+### 在线演示
+[地址](http://118.31.21.116:527/#/login)

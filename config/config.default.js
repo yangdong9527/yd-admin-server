@@ -39,7 +39,7 @@ module.exports = appInfo => {
   // egg-mysql 配置
   config.mysql = {
     client: {
-      host: '127.0.0.1',
+      host: 'localhost',
       port: '3306',
       user: 'root',
       password: '123456',
