@@ -1,4 +1,4 @@
-# YD-VUE-ADMIN
+# YD-ADMIN-SERVER
 
 项目描述 : 前端使用 vue+element-ui 后端使用 egg.js+mysql , 权限控制采用 RBAC，动态生成菜单路由
 
